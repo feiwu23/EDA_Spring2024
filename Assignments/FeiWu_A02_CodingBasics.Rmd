@@ -1,0 +1,94 @@
+---
+title: "Assignment 2: Coding Basics"
+author: "Fei Wu"
+output: pdf_document
+geometry: margin=2.54cm
+editor_options: 
+  chunk_output_type: console
+---
+
+## OVERVIEW
+
+This exercise accompanies the lessons in Environmental Data Analytics on coding basics.
+
+## Directions
+
+1.  Rename this file `<FirstLast>_A02_CodingBasics.Rmd` (replacing `<FirstLast>` with your first and last name).
+2.  Change "Student Name" on line 3 (above) with your name.
+3.  Work through the steps, **creating code and output** that fulfill each instruction.
+4.  Be sure to **answer the questions** in this assignment document.
+5.  When you have completed the assignment, **Knit** the text and code into a single PDF file.
+6.  After Knitting, submit the completed exercise (PDF file) to Sakai.
+
+## Basics, Part 1
+
+1.  Generate a sequence of numbers from one to 30, increasing by threes. Assign this sequence a name.
+
+2.  Compute the mean and median of this sequence.
+
+3.  Ask R to determine whether the mean is greater than the median.
+
+4.  Insert comments in your code to describe what you are doing.
+
+```{r basics 1}
+#1. 
+seq (1,30,3)
+thirty_sequence <-seq(1,30,3)
+# I used the seq function to determine the numbers of the sequence and I named it as "thirty_sequence".
+
+#2. 
+mean(1,4,7,10,13,16,19,22,25,28)
+median(1,4,7,10,13,16,19,22,25,28)
+# i copied and pasted what R gave me in terms of the numbers and used the mean and median function to determine the mean and median of the sequence.
+#3. 
+1>1
+# I used what R gave me for mean and median, and I asked R if mean is bigger than the median. R gave me the answer "False".
+```
+
+## Basics, Part 2
+
+5.  Create a series of vectors, each with four components, consisting of (a) names of students, (b) test scores out of a total 100 points, and (c) whether or not they have passed the test (TRUE or FALSE) with a passing grade of 50.
+
+6.  Label each vector with a comment on what type of vector it is.
+
+7.  Combine each of the vectors into a data frame. Assign the data frame an informative name.
+
+8.  Label the columns of your data frame with informative titles.
+
+```{r basics 2}
+# 5
+names_vector <- c("student1","student2", "student3", "student 4")
+# student names vector; strings
+test_score_vector <- c(100, 80,45,50)
+# test score vector; numerical
+pass_vextor<- c(TRUE, TRUE,FALSE,TRUE)
+# pass or not vector; logial items
+
+# 7
+students_performance <- data.frame(names_vector, test_score_vector, pass_vextor)
+students_performance
+# 8
+create_df <- data.frame("Student Names"=names_vector,"Test Score"=test_score_vector, "Passed"= pass_vextor)
+create_df
+```
+
+9.  QUESTION: How is this data frame different from a matrix?
+
+> Answer:matrix can only contain a single class of data, while this data frame can consist of many different classes of data.
+
+10. Create a function with an if/else statement. Your function should take a **vector** of test scores and print (not return) whether a given test score is a passing grade of 50 or above (TRUE or FALSE). You will need to choose either the `if` and `else` statements or the `ifelse` statement. 
+
+11. Apply your function to the vector with test scores that you created in number 5.
+
+```{r basics 3}
+create_df$Test.Score
+Function_1 <-function(Test_score){
+  ifelse (Test_score>50,TRUE,FALSE)}
+
+Function_1(create_df$Test.Score)
+      
+  ```
+
+12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
+
+> Answer: Becasue "if" and "else" only works on single value.
